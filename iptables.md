@@ -31,6 +31,12 @@ iptables -D INPUT -j DROP # Remove drop rule (to add new rule)
 iptables -I INPUT 4 <new_rule> # Insert rule at line 4
 ```
 
+## Ban IP Address
+```
+iptables -A INPUT -s <ip> -j DROP
+iptables -A OUTPUT -s <ip> -j DROP
+```
+
 ## Persistent Rules
 ```
 apt-get install iptables-persistent
