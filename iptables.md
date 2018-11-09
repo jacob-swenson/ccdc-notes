@@ -12,7 +12,8 @@ iptables -F # Revert to default policies
 
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 # -A INPUT: Append rule to INPUT chain
-# -m conntrack: An extension module that gives access to commands that make decisions based on packet's relationship to previous connections
+# -m conntrack: An extension module that gives access to commands that make decisions based on packet's relationship 
+# to previous connections
 # --ctstate: child of conntrack module, matches packets based on how they are related to packets we've seen before
 # ESTABLISHED: Part of existing connection
 # RELATED: Part of an established connection
