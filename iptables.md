@@ -51,3 +51,27 @@ invoke-rc.d iptables-persistent save # save rules, will remain on server restart
 iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set --name ssh --rsource
 iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent ! --rcheck --seconds 60 --hitcount 4 --name ssh --rsource -j ACCEPT
 ```
+
+## SSHD Config (/etc/ssh/sshd_config) Sane Defaults
+```
+		 Port 22
+         ListenAddress 192.168.1.1
+         HostKey /etc/ssh/ssh_host_key
+         ServerKeyBits 1024
+         LoginGraceTime 600
+         KeyRegenerationInterval 3600
+         PermitRootLogin no
+         IgnoreRhosts yes
+         IgnoreUserKnownHosts yes
+         StrictModes yes
+         X11Forwarding no
+         PrintMotd yes
+         SyslogFacility AUTH
+         LogLevel INFO
+         RhostsAuthentication no
+         RhostsRSAAuthentication no
+         RSAAuthentication yes
+         PasswordAuthentication yes
+         PermitEmptyPasswords no
+         AllowUsers admin
+```
