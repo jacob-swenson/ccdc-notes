@@ -45,3 +45,9 @@ iptables -A INPUT -s <ip> -j ALLOW
 apt-get install iptables-persistent
 invoke-rc.d iptables-persistent save # save rules, will remain on server restart
 ```
+
+## Stop Brute Force Attacks
+```
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set --name ssh --rsource
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent ! --rcheck --seconds 60 --hitcount 4 --name ssh --rsource -j ACCEPT
+```

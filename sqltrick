@@ -1,0 +1,10 @@
+There is a fantastic little script that comes with modern distributions of MySQL., called mysqlsecureinstallation to run it just for the following:
+Note: you will need to know the root password for MySQL.
+
+sudo mysql_secure_installation
+It will first ask you if you want to change your root password.
+then it will ask 3 great questions that the answer will for the most part be yes to.
+
+Remove anonymous users? [Y/n] y
+Disallow root login remotely? [Y/n] y
+Reload privilege tables now? [Y/n] y
